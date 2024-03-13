@@ -1,0 +1,76 @@
+<!--Aca va a estar mi vista, lo que se va a mostrar gracias al body en main.handlebars-->
+{{!-- <h1>Hola, {{nombre}}</h1>
+<h1>NAME, {{name}}</h1>
+<h1>LAST NAME, {{lastName}}</h1>
+<h1>AGE, {{age}}</h1>
+<h1>EMAIL, {{email}}</h1>
+<h1>CEL, {{phone}}</h1> --}}
+{{!-- 
+    <div>
+        <h1>
+            Productos
+        </h1>
+        <div id="caja" class="caja">
+
+        </div>
+    </div>
+
+
+<form>
+  <h2> Agregar productos</h2>
+  <div class="mb-3">
+    <label for="name" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="message" class="form-label">Deja tu mensaje</label>
+    <input type="text" class="form-control" id="message">
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+  <input type="submit" value="Enviar" class="btn btn-primary">
+</form>
+
+{{!-- Configuro mi home para que se conecte con el servidor --}}
+<script src="/socket.io/socket.io.js"></script>
+{{!-- Indico donde va a estar la caerpeta de mi cliente --}}
+<script src="/public/js/index.js"></script> --}}
+{{!-- 
+<div>
+    <h1>Hola {{name}}, estos son todos los usuarios: </h1>
+    <!-- Podemos usar condicionales -->
+    {{#if IsAdmin}}
+    <!-- El interador Each me va a permitir recorrer todos los elementos de mi array -->
+    {{#each users}}
+    <div>
+        <p>{{this.name}} {{this.lastName}}</p>
+    </div>
+    <!-- Tengo que cerrar mi iterador cuando termine de usarlo-->
+    {{/each}}
+    {{else}}
+    <p>No tienes permiso para ingresar </p>
+    <!-- Tambien tenemos que cerrar le if cuando terminemos de usarlo -->
+    {{/if}}
+</div> --}}
+<form onsubmit="addProduct">
+<div class="input-group mb-3">
+  <span class="input-group-text" id="name">Name</span>
+  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="product">Product</span>
+  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="price">$</span>
+  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+  <span class="input-group-text">.00</span>
+</div>
+<div class="input-group">
+  <span class="input-group-text" id="description">Description</span>
+  <textarea class="form-control" aria-label="With textarea"></textarea>
+</div>
+<input type="submit" value="Agregar">
+</form>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/public/js/index.js"></script>
