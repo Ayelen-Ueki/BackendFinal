@@ -30,5 +30,8 @@ class routerCustom{
     }
     generateCustomerResponse(req,res,next){
         res.sendSuccess = payload => res.send({status: "Success", payload})
+        next()
     }
 }
+
+module.exports = routerCustom
