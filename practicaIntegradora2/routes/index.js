@@ -9,6 +9,12 @@ const jwt = require('jsonwebtoken')
 const {authorization} = require ('../passport/passport')
 import { generaToken } from '../index'
 
+//Para personalizar capurar el valor del parametro que esta entrando para trabajarlo de distintas maneras. En el parametro indicamos cuales el valor que estamos esperando interceptar 
+router.param('word', (req,res,next,word)=>{
+    req.word = 'Soy la palabra ' +word
+    next()
+})
+
 
 //Agregamos un middleware en Register utilizando una propiedad de passport que require el nombre de la estrategia que usamos antes en el file de passport.jsz
 router.post('/register',passport.authenticate('register',{failureRedirect:'/user/failedRegister'}),(req,res)=>{
@@ -68,7 +74,9 @@ router.get('logout', (req,res)=>{
 //Ruta con parametro... con la expresion entre corchetes en el parametro podemos restringir lo que podemos incluir en el mismo 
 router.get("/test/:word([a-zA-Z])",(req,res)=>{
     //Usamos json stringify para tomar lo que venga en el parametro y convertirlo en string
-    res.send('Palabra: '+ JSON.stringify(req.params))
+    //res.send('Palabra: '+ JSON.stringify(req.params))
+    //Como router.param ya intercepto el params y lo guardo en el req podemos trabajarlo directamente
+    res.send(req.word)
 })
 
 //El * nos sirve para todos aquellos casos que no cumplen con las condiciones de ninguna de las rutas que hayamos especificadoßß

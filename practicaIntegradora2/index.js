@@ -15,6 +15,7 @@ import {router as sessionRouter} from './routes/sessions.router.js'
 
 //Implementando Json Web Token
 import { Jwt } from 'jsonwebtoken';
+import UserRouter from './routes/userRouter.js';
 const secret_key = "ClaveCoder"
 export const generaToken = (usuario) =>jwt.sign(usuario,secret_key,{expiresIn: 60})
 export const validaToken = (token) => jwt.verify(token, secret_key)
@@ -31,7 +32,8 @@ const initializaePassport = require ('./passport/passport.js')
 const useRouter = require('./routes/index.js')
 const cookieParser = require('cookie-parser')
 const {initializePassport, authorization} = require ('./passport/passport.js')
-
+const UserRouter = require('./routes/userRouter.js')
+const UserRouter = new UserRouter()
 //ejecutamos el file de passport luego de importarlo aca
 // initializaePassport()
 initPassport()
@@ -45,6 +47,7 @@ app.use(cookieParser('coderSecret'));
 app.use(passport.initialize);
 app.use(passport.session())
 app.use('/api/sessions', sessionRouter)
+app.use('./user', UserRouter.getRouter())
 app.use(session({
     secret: 'coderSecret',
     resave: true,
