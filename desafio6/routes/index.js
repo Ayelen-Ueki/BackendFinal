@@ -57,11 +57,11 @@ router.get('/allUsers',passport.authenticate('jwt', {session:false}),authorizati
 })
 
 //Que pasa si falla mi registro
-router.get('/failedRegister',(req,res)=>{
-    res.send('el registro ha fallado')
-})
+//router.get('/failedRegister',(req,res)=>{
+//    res.send('el registro ha fallado')
+//)
 
-router.get('logout', (req,res)=>{
-    res.clearCookie('cookieToken').send('cookie eliminada')
-})
+//router.get('logout', (req,res)=>{
+//   res.clearCookie('cookieToken').send('cookie eliminada')
+//})
 module.exports = router

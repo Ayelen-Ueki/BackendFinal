@@ -46,6 +46,7 @@ app.use(cookieParser('coderSecret'));
 --//Inicializamos passport
 app.use(passport.initialize);
 app.use(passport.session())
+app.use('/auth', authRouter);
 app.use('/api/sessions', sessionRouter)
 app.use('./user', UserRouter.getRouter())
 app.use(session({

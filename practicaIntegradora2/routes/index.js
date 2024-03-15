@@ -84,4 +84,4 @@ router.get('logout', (req,res)=>{
 // router.get("*", (req,res)=>{
 //     req.status(404).send("La ruta no existe")
 // })
-// module.exports = router
+module.exports = router
