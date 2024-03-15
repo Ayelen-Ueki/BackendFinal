@@ -3,25 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Register</title>
+    <!-- Bootstrap CSS for styling -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>REGISTER</h1>
-    <form action="/auth/register" method="post">
-    <div class="mb-3" action="/auth/login" method="post">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="useremail">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <div class="container">
+        <h1 class="mt-5 mb-4">Register</h1>
+        <form action="/auth/register" method="post">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="useremail" required>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleTel">Tel:</label>
+                <input type="tel" class="form-control" id="exampleTel" name="tel">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div class="mt-3">
+            <p>Already have an account? <a href="/login-view">Login here</a></p>
+            <p>Go to <a href="/profile-view">Profile</a></p>
+        </div>
     </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-    </div>
-    <div class="mb-3 form-check">
-        <label for="exampleTel" class="form-label">Tel: </label>
-        <input type="tel" class="form-control" id="exampleTel">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <!-- Bootstrap JS for form validation and other functionalities -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

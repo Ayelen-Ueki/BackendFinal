@@ -9,7 +9,7 @@ const CartSchema = new mongoose.Schema({
     products: [{
         //Referenciar al Product model
         product: {
-            type: mongoose.Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,   
             ref: 'Product' 
         }
     }]
@@ -18,10 +18,10 @@ const CartSchema = new mongoose.Schema({
 //Automatizacion de la funcion populate
 CartSchema.pre('find', function(next) {
     this.populate('products.product');
-    next();
+    next(); 
 });
 
 // Definimos Cart model
-const Cart = mongoose.model('Cart', CartSchema);
+const Cart = mongoose.model('cart', CartSchema);
 
 module.exports = Cart;

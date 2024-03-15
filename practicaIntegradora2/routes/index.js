@@ -71,17 +71,17 @@ router.get('logout', (req,res)=>{
     res.clearCookie('cookieToken').send('cookie eliminada')
 })
 
-//Ruta con parametro... con la expresion entre corchetes en el parametro podemos restringir lo que podemos incluir en el mismo 
-router.get("/test/:word([a-zA-Z])",(req,res)=>{
-    //Usamos json stringify para tomar lo que venga en el parametro y convertirlo en string
-    //res.send('Palabra: '+ JSON.stringify(req.params))
-    //Como router.param ya intercepto el params y lo guardo en el req podemos trabajarlo directamente
-    res.send(req.word)
-})
+// //Ruta con parametro... con la expresion entre corchetes en el parametro podemos restringir lo que podemos incluir en el mismo 
+// router.get("/test/:word([a-zA-Z])",(req,res)=>{
+//     //Usamos json stringify para tomar lo que venga en el parametro y convertirlo en string
+//     //res.send('Palabra: '+ JSON.stringify(req.params))
+//     //Como router.param ya intercepto el params y lo guardo en el req podemos trabajarlo directamente
+//     res.send(req.word)
+// })
 
-//El * nos sirve para todos aquellos casos que no cumplen con las condiciones de ninguna de las rutas que hayamos especificadoßß
+// //El * nos sirve para todos aquellos casos que no cumplen con las condiciones de ninguna de las rutas que hayamos especificadoßß
 
-router.get("*", (req,res)=>{
-    req.status(404).send("La ruta no existe")
-})
-module.exports = router
+// router.get("*", (req,res)=>{
+//     req.status(404).send("La ruta no existe")
+// })
+// module.exports = router
